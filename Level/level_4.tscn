@@ -1,7 +1,8 @@
-[gd_scene load_steps=9 format=3 uid="uid://begqdd10acml3"]
+[gd_scene load_steps=10 format=3 uid="uid://05xwcvbh4pfb"]
 
-[ext_resource type="PackedScene" uid="uid://b5vvcmle4nqtm" path="res://player.tscn" id="1_o6mkr"]
-[ext_resource type="Script" uid="uid://jjg6gdrb6e1u" path="res://Level/landing_pad.gd" id="2_qmtf6"]
+[ext_resource type="PackedScene" uid="uid://b5vvcmle4nqtm" path="res://player.tscn" id="1_peyg1"]
+[ext_resource type="Script" uid="uid://jjg6gdrb6e1u" path="res://Level/landing_pad.gd" id="2_ncm42"]
+[ext_resource type="PackedScene" uid="uid://cxac7qxu2c8y5" path="res://moving_hazard.tscn" id="3_ncm42"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_5xgho"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -27,7 +28,7 @@ albedo_color = Color(0, 0, 1, 1)
 
 [node name="Level" type="Node3D"]
 
-[node name="Player" parent="." groups=["Goal"] instance=ExtResource("1_o6mkr")]
+[node name="Player" parent="." groups=["Goal"] instance=ExtResource("1_peyg1")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 1.5, 0)
 thrust = 750.0
 
@@ -55,8 +56,12 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 0.25, 0)
 use_collision = true
 size = Vector3(4, 0.5, 4)
 material = SubResource("StandardMaterial3D_f2txt")
-script = ExtResource("2_qmtf6")
-file_path = "uid://dhabpfhfjcege"
+script = ExtResource("2_ncm42")
+file_path = "uid://begqdd10acml3"
 
 [node name="Camera3D" type="Camera3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.025, 12)
+
+[node name="MovingHazard" parent="." instance=ExtResource("3_ncm42")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
+destination = Vector3(0, 2, 0)

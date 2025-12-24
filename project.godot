@@ -11,9 +11,14 @@ config_version=5
 [application]
 
 config/name="ProjectBoost"
-run/main_scene="res://player.tscn"
+run/main_scene="uid://begqdd10acml3"
 config/features=PackedStringArray("4.5", "Forward Plus")
 config/icon="res://icon.svg"
+
+[global_group]
+
+Goal=""
+Hazard=""
 
 [input]
 
